@@ -267,31 +267,99 @@ h2 {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 }
 
 .member-image {
-  height: 300px;
-  background: linear-gradient(120deg, var(--primary), var(--primary-dark));
+  height: 400px;
   position: relative;
+  overflow: hidden;
 }
 
-.member-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+.member-image img {
   width: 100%;
   height: 100%;
-  background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='%23ffffff' fill-opacity='0.05'/%3E%3Cpath d='M10 10h80v80H10z' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.1'/%3E%3C/svg%3E");
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover .member-image img {
+  transform: scale(1.05);
 }
 
 .member-info {
   padding: 2rem;
+  background: white;
+  position: relative;
+}
+
+.member-info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover .member-info::before {
+  transform: scaleX(1);
+}
+
+.member-info h3 {
+  font-family: 'Cinzel', serif;
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
 }
 
 .member-role {
   color: var(--primary);
   font-weight: 600;
   margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.member-desc {
+  color: var(--text-light);
+  line-height: 1.6;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .member-image {
+    height: 350px;
+  }
+  
+  .member-image img {
+    object-position: top center;
+  }
+  
+  .team-grid {
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  
+  .team-member {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .member-image {
+    height: 300px;
+  }
 }
 
 /* Contact Section */
