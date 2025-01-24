@@ -135,6 +135,7 @@ body {
   font-size: 1.5rem;
   margin-bottom: 2rem;
   font-weight: 300;
+  line-height: 1.8;
 }
 
 .hero-cta {
@@ -195,6 +196,7 @@ h2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  padding: 1rem;
 }
 
 .service-card {
